@@ -31,8 +31,11 @@ while True:
 
     if(eleccion == "r" or eleccion == "remove"):
         identificador = input("Introduce un ID\n > ")
-        while not identificador.isdigit():
-            identificador = input("Debes introducir un identificador.")
+        while not identificador.isdigit() or not int(identificador) in funciones.ids:
+            while not identificador.isdigit():
+                identificador = input("Debes introducir un identificador.\n > ")
+            while not int(identificador) in funciones.ids:
+                identificador = input("Esa ID no existe. Introduce una existente.\n > ")
         usuariosEliminar.append(int(identificador))
 
     if(eleccion == "s" or eleccion == "save"):
