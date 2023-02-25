@@ -52,3 +52,4 @@ def verComandos():
     print("r - Para eliminar un usuario existente")
     print("s - Para guardar la lista actual de usuarios")
     print("q - Para abandonar esta terminal")
+    return input(" > ")

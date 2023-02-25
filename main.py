@@ -2,6 +2,9 @@ import os
 
 import funciones
 
+if __name__ != "__main__":
+    print("Que haces tonto")
+    quit()
 
 rutaArchivoJSON = os.path.dirname(__file__) + "\\004 - archivo.json"
 
@@ -11,10 +14,10 @@ usuariosCopia = contenido["main"].copy()
 usuariosEliminar = []
 
 posiblesRespuestas = ["l", "list", "n", "new", "r", "remove", "s", "save", "q", "quit"]
-funciones.verComandos()
-eleccion = input(" > ")
+eleccion = funciones.verComandos()
 if(eleccion not in posiblesRespuestas):
     eleccion = input("Deberías escribir algo valido: ")
+
 while True:
     
     if(eleccion == "l" or eleccion == "list"):
@@ -48,5 +51,4 @@ while True:
     if(eleccion not in posiblesRespuestas):
         eleccion = input("Deberías escribir algo valido: ")
     else:
-        funciones.verComandos()
-        eleccion = input(" > ")
+        eleccion = funciones.verComandos()
