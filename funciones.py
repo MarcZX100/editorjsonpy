@@ -1,8 +1,6 @@
 import json
 
-
 ids = []
-global usuariosCopia
 
 def cargarJSON(rutaArchivo):
     try:
@@ -14,7 +12,6 @@ def cargarJSON(rutaArchivo):
             contenido = json.loads('{"usuarios":[],"bots":[]}')
     for usuario in contenido["usuarios"]:
         ids.append(usuario["id"])
-    usuariosCopia = contenido["usuarios"].copy()
     return contenido
 
 def guardarJSON(rutaArchivo, contenido, usuariosEliminar):
