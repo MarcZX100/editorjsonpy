@@ -1,10 +1,7 @@
 import os
-import importlib
 
 import funciones
 
-# Para que no use una versión vieja de las funciones
-importlib.reload(funciones)
 
 rutaArchivoJSON = os.path.dirname(__file__) + "\\004 - archivo.json"
 
