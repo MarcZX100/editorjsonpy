@@ -4,3 +4,4 @@ La verdad no sé que es esto, te edita un archivo donde puedes guardar usuarios 
 
 ## TODO:
 - [ ] list -f id:3 
+- [ ] Que de alguna forma puedas crear parámetros como el nombre o la edad 
