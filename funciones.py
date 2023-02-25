@@ -17,6 +17,10 @@ def cargarJSON(rutaArchivo):
             tutorial()
             archivo.write('{"main":[],"config":{"parametros":[]}}')
             contenido = json.loads('{"main":[],"config":{"parametros":[]}}')
+    except json.decoder.JSONDecodeError: # Si el archivo está vacio
+        with open(rutaArchivo, "w") as archivo:
+            archivo.write('{"main":[],"config":{"parametros":[]}}')
+            contenido = json.loads('{"main":[],"config":{"parametros":[]}}')
     for usuario in contenido["main"]:
         ids.append(usuario["id"])
     return contenido
@@ -28,12 +32,15 @@ def guardarJSON(rutaArchivo, contenido, usuariosEliminar):
         archivo.write(json.dumps(contenido))
     
 
-def crearUsuario(contenido: list, nombre: str, edad: int):
+def crearUsuario(contenido: list, parametros: list):
     id = 1
     while id in ids:
         id += 1
     ids.append(id)
-    contenido["main"].append({'id': id, 'nombre': nombre, 'edad': edad})
+    usuario = {"id": id}
+    for parametro in parametros:
+        usuario[parametro[0]] = parametro[1]
+    contenido["main"].append(usuario)
 
 
 def eliminarUsuario(listaUsuarios: list, id: int):
@@ -54,6 +61,9 @@ def verUsuarios(usuarios, usuariosEliminar, usuariosCopia):
 
 def verComandos():
     print("Puedes usar varios comandos")
+    print("cp - Para crear un nuevo parámetro")
+    print("rp - Para eliminar un parámetro")
+    print()
     print("l - Para ver una lista de usuarios")
     print("n - Para crear un nuevo usuario")
     print("r - Para eliminar un usuario existente")
@@ -61,11 +71,5 @@ def verComandos():
     print("q - Para abandonar esta terminal")
     return input(" > ")
 
-# Obligatorio / nombre parametro / mensaje para pedirtelo / tipo valor
-lista = [
-    [True, "nombre", "Introduce el nombre de tu usuario", str],
-    [False, "edad", "Introduce el nombre de tu usuario", int]
-]
-
 def crearParametro(listaParametros: list, parametro: str, pregunta:str, obligatorio: bool, tipo: type):
-    listaParametros.append(obligatorio, parametro, pregunta, tipo)
+    listaParametros.append([str(obligatorio), parametro, pregunta, ""+tipo+""])
