@@ -12,6 +12,9 @@ contenido = funciones.cargarJSON(rutaArchivoJSON)
 usuarios = contenido["main"]
 usuariosCopia = contenido["main"].copy()
 usuariosEliminar = []
+config = contenido["config"]
+parametros = config["parametros"]
+
 
 posiblesRespuestas = ["l", "list", "n", "new", "r", "remove", "s", "save", "q", "quit"]
 eleccion = funciones.verComandos()
