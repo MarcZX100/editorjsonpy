@@ -6,7 +6,7 @@ if __name__ != "__main__":
     print("Que haces tonto")
     quit()
 
-rutaArchivoJSON = os.path.dirname(__file__) + "\\004 - archivo.json"
+rutaArchivoJSON = os.path.dirname(__file__) + "/004 - archivo.json"
 
 def reload():
     contenido = funciones.cargarJSON(rutaArchivoJSON)
