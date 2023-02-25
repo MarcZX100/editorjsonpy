@@ -8,18 +8,17 @@ def cargarJSON(rutaArchivo):
             contenido = json.loads(archivo.read())
     except FileNotFoundError:
         with open(rutaArchivo, "w") as archivo:
-            archivo.write('{"usuarios":[],"bots":[]}')
-            contenido = json.loads('{"usuarios":[],"bots":[]}')
-    for usuario in contenido["usuarios"]:
+            archivo.write('{"main":[]}')
+            contenido = json.loads('{"main":[]}')
+    for usuario in contenido["main"]:
         ids.append(usuario["id"])
     return contenido
 
 def guardarJSON(rutaArchivo, contenido, usuariosEliminar):
     for id in usuariosEliminar:
-        eliminarUsuario(contenido["usuarios"], id)
+        eliminarUsuario(contenido["main"], id)
     with open(rutaArchivo, "w") as archivo:
         archivo.write(json.dumps(contenido))
-    usuariosEliminar = []
     
 
 def crearUsuario(contenido: list, nombre: str, edad: int):
@@ -27,7 +26,7 @@ def crearUsuario(contenido: list, nombre: str, edad: int):
     while id in ids:
         id += 1
     ids.append(id)
-    contenido["usuarios"].append({'id': id, 'nombre': nombre, 'edad': edad})
+    contenido["main"].append({'id': id, 'nombre': nombre, 'edad': edad})
 
 
 def eliminarUsuario(listaUsuarios: list, id: int):

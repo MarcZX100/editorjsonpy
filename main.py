@@ -6,8 +6,8 @@ import funciones
 rutaArchivoJSON = os.path.dirname(__file__) + "\\004 - archivo.json"
 
 contenido = funciones.cargarJSON(rutaArchivoJSON)
-usuarios = contenido["usuarios"]
-usuariosCopia = contenido["usuarios"].copy()
+usuarios = contenido["main"]
+usuariosCopia = contenido["main"].copy()
 usuariosEliminar = []
 
 posiblesRespuestas = ["l", "list", "n", "new", "r", "remove", "s", "save", "q", "quit"]
@@ -38,7 +38,8 @@ while True:
 
     if(eleccion == "s" or eleccion == "save"):
         funciones.guardarJSON(rutaArchivoJSON, contenido, usuariosEliminar)
-        usuariosCopia = contenido["usuarios"].copy()
+        usuariosCopia = contenido["main"].copy()
+        usuariosEliminar = []
 
     if(eleccion == "q" or eleccion == "quit"):
         print("deu")
