@@ -68,13 +68,11 @@ while True:
 
     if(eleccion == "l" or eleccion == "list"):
         funciones.verUsuarios(usuarios, usuariosEliminar, usuariosCopia)
-        print(parametros)
 
     if(eleccion == "n" or eleccion == "new"):
         listaParametros = []
         for i in parametros:
             valor = input(i[2] + (' (Opcional)' if not eval(i[0]) else '') + "\n > ")
-
             try:
                 if valor != "":
                     tipoValor = valor.split()[0] # Para que no pete si metes dos palabras separadas
@@ -88,7 +86,6 @@ while True:
                 if not i[3] == "None":
                     while tipoValor != eval(i[3]):
                         valor = input(f"ERROR! El valor introducido es de tipo {tipoValor} pero requiere un {i[3]}.\n > ")
-                        
             listaParametros.append([i[1], valor])
 
         funciones.crearUsuario(contenido, listaParametros)
