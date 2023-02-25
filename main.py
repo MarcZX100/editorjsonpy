@@ -19,6 +19,7 @@ eleccion = input(" > ")
 if(eleccion not in posiblesRespuestas):
     eleccion = input("Deberías escribir algo valido: ")
 while True:
+    
     if(eleccion == "l" or eleccion == "list"):
         funciones.verUsuarios(usuarios, usuariosEliminar, usuariosCopia)
 
@@ -51,4 +52,3 @@ while True:
     else:
         funciones.verComandos()
         eleccion = input(" > ")
-
