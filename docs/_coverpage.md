@@ -8,5 +8,5 @@
 - No statically built html files
 - Multiple themes
 
-[GitHub](https://github.com/marczx100/editorjson/)
+[GitHub](https://github.com/marczx100/editorjsonpy/)
 [Getting Started](#docsify)
