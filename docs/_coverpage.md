@@ -1,4 +1,4 @@
-![logo](_media/favicon.jpg)
+![logo](_media/clipart1337803.png)
 
 # docsify <small>4.13.0</small>
 
