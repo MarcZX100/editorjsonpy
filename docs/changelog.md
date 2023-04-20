@@ -1,0 +1,1 @@
+Para esto deberia probar lo de git log --oneline --decorate --color
