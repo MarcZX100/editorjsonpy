@@ -8,7 +8,7 @@ def tutorial():
     print("Se recomienda configurar primero los parámetros y luego no tocarlos para que no hayan errores")
     print("Se explica algo mas y ya")
 
-def cargarJSON(rutaArchivo):
+def cargarJSON(rutaArchivo: str):
     try:
         with open(rutaArchivo, "r") as archivo:
             contenido = json.loads(archivo.read())
@@ -25,7 +25,7 @@ def cargarJSON(rutaArchivo):
         ids.append(usuario["id"])
     return contenido
 
-def guardarJSON(rutaArchivo, contenido, usuariosEliminar):
+def guardarJSON(rutaArchivo: str, contenido: str, usuariosEliminar: list):
     for id in usuariosEliminar:
         eliminarUsuario(contenido["main"], id)
     with open(rutaArchivo, "w") as archivo:
@@ -50,7 +50,7 @@ def eliminarUsuario(listaUsuarios: list, id: int):
         ids.remove(id)
 
 
-def verUsuarios(usuarios, usuariosEliminar, usuariosCopia):
+def verUsuarios(usuarios: list, usuariosEliminar: list, usuariosCopia: list):
     for usuario in usuarios:
         if usuario["id"] in usuariosEliminar:
             print("\33[41m" + str(usuario) + "\33[0m")
@@ -72,4 +72,4 @@ def verComandos():
     return input(" > ")
 
 def crearParametro(listaParametros: list, parametro: str, pregunta:str, obligatorio: bool, tipo: type):
-    listaParametros.append([str(obligatorio), parametro, pregunta, ""+tipo+""])
+    listaParametros.append([str(obligatorio), parametro, pregunta, str(tipo)])
