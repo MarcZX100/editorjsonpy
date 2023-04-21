@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+The objective of this section is to show the upcoming modifications.
+
+
 ## [1.1.1] - 2023-03-05
 
 ### Added
