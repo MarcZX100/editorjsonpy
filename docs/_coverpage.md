@@ -1,6 +1,6 @@
 ![logo](_media/clipart1337803.png)
 
-# docsify <small>4.13.0</small>
+# EditorJsonPy <small></small>
 
 > A magical documentation site generator.
 
@@ -9,4 +9,4 @@
 - Multiple themes
 
 [GitHub](https://github.com/marczx100/editorjsonpy/)
-[Getting Started](#docsify)
+[Getting Started](#intro.md)
