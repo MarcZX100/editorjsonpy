@@ -1,6 +1,6 @@
 ![logo](_media/clipart1337803.png)
 
-# EditorJsonPy <small></small>
+# EditorJsonPy <small>0.1.0</small>
 
 > A magical documentation site generator.
 
