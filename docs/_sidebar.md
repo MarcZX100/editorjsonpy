@@ -6,5 +6,4 @@
 - Algo
 
 * [Algo pero pequeñito](/)
-
 * [Changelog](changelog.md) <!-- Esto deberia ir abajo del todo -->
