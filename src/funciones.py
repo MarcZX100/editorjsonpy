@@ -1,7 +1,7 @@
 import json
 
 ids = []
-
+fileName = "file" # Quiero hacer que puedas cambiar el nombre del archivo json
 
 def tutorial():
     print("Bienvenido a lo que sea esto (tener en cuenta que esto solo aparece cuando el archivo json no existe)")
@@ -9,15 +9,15 @@ def tutorial():
     print("Se explica algo mas y ya")
 
 def cargarJSON(rutaArchivo: str):
-    try:
+    try: # Si encuentra el archivo
         with open(rutaArchivo, "r") as archivo:
             contenido = json.loads(archivo.read())
-    except FileNotFoundError:
+    except FileNotFoundError: # Si no encuentra el archivo crearlo
         with open(rutaArchivo, "w") as archivo:
             tutorial()
             archivo.write('{"main":[],"config":{"parametros":[]}}')
             contenido = json.loads('{"main":[],"config":{"parametros":[]}}')
-    except json.decoder.JSONDecodeError: # Si el archivo está vacio
+    except json.decoder.JSONDecodeError: # Si el archivo está vacio editarlo
         with open(rutaArchivo, "w") as archivo:
             archivo.write('{"main":[],"config":{"parametros":[]}}')
             contenido = json.loads('{"main":[],"config":{"parametros":[]}}')

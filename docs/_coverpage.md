@@ -1,12 +1,11 @@
 ![logo](_media/clipart1337803.png)
 
-# docsify <small>4.13.0</small>
+# EditorJsonPy <small>0.1.0</small>
 
-> A magical documentation site generator.
+> A generical simple JSON editor made in Python.
 
-- Simple and lightweight
-- No statically built html files
-- Multiple themes
+- Automatic identifier generation and management
+- Easily modify parameters
 
 [GitHub](https://github.com/marczx100/editorjsonpy/)
-[Getting Started](#docsify)
+[Getting Started](#config)
