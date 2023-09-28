@@ -73,7 +73,6 @@ while True:
     if eleccion == "n" or eleccion == "new":
         listaParametros = []
         for parametro in parametros:
-            print(parametro)
             valor = input(parametro[2] + (' (Opcional)' if not eval(parametro[0]) else '') + "\n > ")
             tipo = eval(parametro[3])
     
@@ -106,6 +105,6 @@ while True:
         quit()
 
     if(eleccion not in posiblesRespuestas):
-        eleccion = input("ERROR! Deberías escribir algo valido: ")
+        eleccion = input("ERROR! Deberías escribir algo valido.\n > ")
     else:
         eleccion = funciones.verComandos()
