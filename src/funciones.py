@@ -51,6 +51,9 @@ def eliminarUsuario(listaUsuarios: list, id: int):
 
 
 def verUsuarios(usuarios: list, usuariosEliminar: list, usuariosCopia: list):
+    print("\n")
+    if len(usuarios) == 0:
+        print("\33[41mAún no hay usuarios guardados.\33[0m")
     for usuario in usuarios:
         if usuario["id"] in usuariosEliminar:
             print("\33[41m" + str(usuario) + "\33[0m")
@@ -58,9 +61,10 @@ def verUsuarios(usuarios: list, usuariosEliminar: list, usuariosCopia: list):
             print("\33[42m" + str(usuario) + "\33[0m")
         else:
             print(usuario)
+    print("\n")
 
 def verComandos():
-    print("Puedes usar varios comandos")
+    print("\nPuedes usar varios comandos")
     print("cp - Para crear un nuevo parámetro")
     print("rp - Para eliminar un parámetro")
     print()
