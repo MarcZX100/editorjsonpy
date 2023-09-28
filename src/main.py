@@ -1,4 +1,5 @@
 import os
+from sre_parse import TYPE_FLAGS
 
 import funciones
 
@@ -68,25 +69,22 @@ while True:
 
     if(eleccion == "l" or eleccion == "list"):
         funciones.verUsuarios(usuarios, usuariosEliminar, usuariosCopia)
-
-    if(eleccion == "n" or eleccion == "new"):
+    
+    if eleccion == "n" or eleccion == "new":
         listaParametros = []
-        for i in parametros:
-            valor = input(i[2] + (' (Opcional)' if not eval(i[0]) else '') + "\n > ")
-            try:
-                if valor != "":
-                    tipoValor = valor.split()[0] # Para que no pete si metes dos palabras separadas
-                    tipoValor = type(eval(tipoValor))
-                else:
-                    tipoValor = str
-            except NameError:
-                tipoValor = str
-
-            if bool(i[0]):
-                if not i[3] == "None":
-                    while tipoValor != eval(i[3]):
-                        valor = input(f"ERROR! El valor introducido es de tipo {tipoValor} pero requiere un {i[3]}.\n > ")
-            listaParametros.append([i[1], valor])
+        for parametro in parametros:
+            print(parametro)
+            valor = input(parametro[2] + (' (Opcional)' if not eval(parametro[0]) else '') + "\n > ")
+            tipo = eval(parametro[3])
+    
+            while tipo != type(valor):
+                try:
+                    valor = tipo(valor)
+                except (ValueError, TypeError, NameError) as e:
+                    print(e)
+                    valor = input(f"ERROR! El valor introducido debe ser de tipo {parametro[3]}.\n > ")
+                    
+            listaParametros.append([parametro[1], valor])
 
         funciones.crearUsuario(contenido, listaParametros)
 
