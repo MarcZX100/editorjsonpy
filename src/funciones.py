@@ -17,10 +17,8 @@ def cargarJSON(rutaArchivo: str):
             tutorial()
             archivo.write('{"main":[],"config":{"parametros":[]}}')
             contenido = json.loads('{"main":[],"config":{"parametros":[]}}')
-    except json.decoder.JSONDecodeError: # Si el archivo está vacio editarlo
-        with open(rutaArchivo, "w") as archivo:
-            archivo.write('{"main":[],"config":{"parametros":[]}}')
-            contenido = json.loads('{"main":[],"config":{"parametros":[]}}')
+    # Un JSON inválido debe conservarse para poder corregirlo o recuperar sus datos.
+    # JSONDecodeError se propaga al llamador sin sobrescribir el archivo.
     for usuario in contenido["main"]:
         ids.append(usuario["id"])
     return contenido
